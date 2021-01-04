@@ -23,14 +23,16 @@ const Layout = ({ children }) => {
   return (
     <>
       <div>
-        <main>{children}</main>
-        <footer
-          style={{
-            marginTop: `2rem`,
-          }}
-        >
-          © {new Date().getFullYear()}
-        </footer>
+        <main>
+          {children}
+          <footer
+            style={{
+              marginTop: `2rem`,
+            }}
+          >
+            © {new Date().getFullYear()}
+          </footer>
+        </main>
       </div>
     </>
   )
