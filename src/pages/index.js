@@ -16,6 +16,7 @@ export default function IndexPage() {
             frontmatter {
               date(formatString: "MMMM DD, YYYY")
               title
+              type
             }
           }
         }
@@ -38,6 +39,8 @@ export default function IndexPage() {
             >
               {x.node.frontmatter.title}
             </Link>
+            <span className={"tag " + x.node.frontmatter.type.toLowerCase()}>
+              {x.node.frontmatter.type}</span>
           </li>
         ))}
       </ul>
