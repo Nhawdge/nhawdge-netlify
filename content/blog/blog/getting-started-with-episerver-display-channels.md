@@ -7,7 +7,7 @@ tags:
   - Episerver
 type: Blog
 ---
-> Brief Note: I'll be adding some hand-wavy comments to remove parts of the code that aren't related to display channels. The code is important, but its project specific. [Feedback is welcome](https://github.com/Nhawdge/nhawdge-netlify/issues)
+> Brief Note: I'll be adding some hand-wavy comments to remove parts of the code that aren't related to display channels. The code is important, but its project specific. [Feedback is welcome](https://github.com/Nhawdge/nhawdge-netlify/issues).
 
 
 ## What are Episerver Display Channels?

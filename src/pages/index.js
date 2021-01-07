@@ -28,6 +28,9 @@ export default function IndexPage() {
     <Layout>
       <SEO title="Home" />
       <h1>Nhawdge.net</h1>
+      <p>
+        Hi and welcome to my personal, professional, and everything else blog. I'm keeping it simple, and blogging about things I'm interested in, and things I've done.
+      </p>
       <ul>
         {blogs.map(x => (
           <li>
