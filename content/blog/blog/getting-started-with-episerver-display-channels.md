@@ -88,7 +88,7 @@ namespace ExampleSite.Controllers.Pages
 Now we create a second controller that serves the AMP channel when a blog post is requested. The key difference is the template descriptor being specific to AMP pages, and the view page is for our AMP view pages.
 
 ```csharp
-namespace GreatWesternBank.Controllers.Channels
+namespace ExampleSite.Controllers.Channels
 {
     [TemplateDescriptor(Tags = new string[] { AmpChannel.Name })]
     public class AmpController : PageController<BlogPostPage>
