@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
+
 main {
   max-width: 800px;
   margin: auto;
@@ -17,4 +19,28 @@ main {
 
 .tag.story {
   background-color: blue;
+}
+
+.blog-post-content {
+  font-family: "Noto Sans", sans-serif;
+
+  code {
+    font-family: Consolas, monospace;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 0px 2px;
+  }
+}
+
+pre {
+  code {
+    padding: 10px;
+    border-radius: 5px;
+    display: block;
+  }
+}
+
+blockquote {
+  background-color: rgba(255, 252, 60, 0.75);
+  padding: 5px 15px;
+  border-radius: 20px;
 }
