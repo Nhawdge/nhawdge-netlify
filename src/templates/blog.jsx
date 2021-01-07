@@ -1,3 +1,4 @@
+import { Link } from "gatsby"
 import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -11,6 +12,7 @@ export default function Template(data) {
         title={pageData.frontmatter.title}
         description={pageData.frontmatter.description}
       ></SEO>
+      <Link to="/">&lt; Back</Link>
       <h2> {pageData.frontmatter.title} </h2>
       <div>{new Date(pageData.frontmatter.date).toDateString()}</div>
       <span>Word Count: {pageData.wordCount.words}</span>

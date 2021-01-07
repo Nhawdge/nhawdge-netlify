@@ -1,8 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap");
 
 main {
+  font-family: "Noto Sans", sans-serif;
   max-width: 800px;
   margin: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Roboto Slab", serif;
 }
 
 .tag {
@@ -22,8 +33,6 @@ main {
 }
 
 .blog-post-content {
-  font-family: "Noto Sans", sans-serif;
-
   code {
     font-family: Consolas, monospace;
     background-color: rgba(0, 0, 0, 0.2);
@@ -43,4 +52,8 @@ blockquote {
   background-color: rgba(255, 252, 60, 0.75);
   padding: 5px 15px;
   border-radius: 20px;
+}
+
+body {
+  background-color: rgba(25, 25, 75, 0.25);
 }
