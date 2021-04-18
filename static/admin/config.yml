@@ -9,11 +9,11 @@ public_folder: /img
 collections:
   - name: "blog"
     label: "Blog"
-    folder: "content/blog"
+    folder: "content"
     create: true
     media_folder: ""
     public_folder: ""
-    path: "blog/{{title}}"
+    slug: "{{slug}}"
     editor:
       preview: false
     fields:
