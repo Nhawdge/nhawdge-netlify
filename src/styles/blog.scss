@@ -1,6 +1,6 @@
-body {
-  display: block;
-}
+// body {
+//   display: block;
+// }
 .blog-post-content {
   code {
     font-family: Consolas, monospace;
@@ -12,11 +12,13 @@ body {
 pre {
   overflow: scroll;
   background-color: rgba(0, 0, 0, 0.2);
+  
   & > code {
     background-color: transparent;
     padding: 10px;
     border-radius: 5px;
     display: block;
+    width: fit-content;
   }
 }
 
