@@ -1,0 +1,19 @@
+.tag {
+  padding: 0px 10px;
+  color: #f0f0f0;
+  background-color: black;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.tag.blog {
+  background-color: orange;
+}
+
+.tag.story {
+  background-color: blue;
+}
+
+.link {
+  padding: 3px 0px;
+}

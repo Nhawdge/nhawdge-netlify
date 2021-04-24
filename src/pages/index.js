@@ -4,6 +4,8 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { useStaticQuery, graphql, Link } from "gatsby"
 
+import "../styles/home.scss"
+
 export default function IndexPage() {
   const data = useStaticQuery(graphql`
     query {
@@ -36,16 +38,16 @@ export default function IndexPage() {
         I'm keeping it simple, and blogging about things I'm interested in, and
         things I've done.
       </p>
-      <ul>
+      <article>
         {blogs.map(x => (
-          <li>
+          <div className="link">
             <Link to={x.node.fields.slug}>{x.node.frontmatter.title}</Link>
             <span className={"tag " + x.node.frontmatter.type.toLowerCase()}>
               {x.node.frontmatter.type}
             </span>
-          </li>
+          </div>
         ))}
-      </ul>
+      </article>
     </Layout>
   )
 }

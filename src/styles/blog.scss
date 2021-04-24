@@ -1,0 +1,27 @@
+body {
+  display: block;
+}
+.blog-post-content {
+  code {
+    font-family: Consolas, monospace;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 0px 2px;
+  }
+}
+
+pre {
+  overflow: scroll;
+  background-color: rgba(0, 0, 0, 0.2);
+  & > code {
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 5px;
+    display: block;
+  }
+}
+
+blockquote {
+  background-color: rgba(255, 252, 60, 0.75);
+  padding: 5px 15px;
+  border-radius: 20px;
+}

@@ -1,16 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap");
 
-main {
-  font-family: "Noto Sans", sans-serif;
-  max-width: 800px;
-  margin: auto;
-  font-size: 14px;
-}
-
 body {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 14px;
+  justify-items: center;
   background-color: rgba(25, 25, 75, 0.25);
-  display: grid;
+  padding: 10px;
+  max-width: 800px;
+  display: flex;
 }
 
 h1,
@@ -22,40 +20,3 @@ h6 {
   font-family: "Roboto Slab", serif;
 }
 
-.tag {
-  padding: 0px 10px;
-  color: #f0f0f0;
-  background-color: black;
-  border-radius: 10px;
-  margin: 10px;
-}
-
-.tag.blog {
-  background-color: orange;
-}
-
-.tag.story {
-  background-color: blue;
-}
-
-.blog-post-content {
-  code {
-    font-family: Consolas, monospace;
-    background-color: rgba(0, 0, 0, 0.2);
-    padding: 0px 2px;
-  }
-}
-
-pre {
-  code {
-    padding: 10px;
-    border-radius: 5px;
-    display: block;
-  }
-}
-
-blockquote {
-  background-color: rgba(255, 252, 60, 0.75);
-  padding: 5px 15px;
-  border-radius: 20px;
-}
