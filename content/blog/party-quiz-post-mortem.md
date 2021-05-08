@@ -4,9 +4,9 @@ date: 2021-05-07T18:22:58.864Z
 description: Party Quiz Post Mortem
 type: Project
 ---
-https://github.com/Nhawdge/party-quiz
+[Github Repo](https://github.com/Nhawdge/party-quiz)
 
-http://nhawdges-party-quiz.herokuapp.com/
+[Playable Demo](http://nhawdges-party-quiz.herokuapp.com/)
 
 ## Why I did it.
 
