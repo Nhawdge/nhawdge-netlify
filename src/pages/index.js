@@ -32,7 +32,7 @@ export default function IndexPage() {
   return (
     <Layout>
       <SEO title="Home" />
-      <h1>Nhawdge.net</h1>
+      <object type="image/svg+xml" data="/nhawdge.svg"></object>
       <p>
         Hi and welcome to my personal, professional, and everything else blog.
         I'm keeping it simple, and blogging about things I'm interested in, and

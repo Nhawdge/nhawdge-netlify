@@ -1,0 +1,110 @@
+ <svg
+      viewBox="0 0 130 35"
+      xmlns="http://www.w3.org/2000/svg"
+    >   
+    <script>
+    // <![CDATA[
+      var svg = document.querySelector("svg");
+      var nodes = [
+        //n
+        { x: 10, y: 20 },
+        { x: 10, y: 10 },
+        { x: 20, y: 10 },
+        { x: 20, y: 20 },
+        //h
+        { x: 25, y: 20 },
+        { x: 25, y: 1 },
+        { x: 25, y: 10 },
+        { x: 35, y: 10 },
+        { x: 35, y: 20 },
+        // a
+        { x: 40, y: 20 },
+        { x: 40, y: 10 },
+        { x: 50, y: 10 },
+        { x: 50, y: 15 },
+        { x: 40, y: 15 },
+        { x: 50, y: 15 },
+        { x: 50, y: 20 },
+        //w
+        { x: 55, y: 20 },
+        { x: 55, y: 10 },
+        { x: 55, y: 20 },
+        { x: 65, y: 20 },
+        { x: 65, y: 10 },
+        { x: 65, y: 20 },
+        { x: 75, y: 20 },
+        { x: 75, y: 10 },
+        { x: 75, y: 20 },
+        //d
+        { x: 80, y: 20 },
+        { x: 80, y: 10 },
+        { x: 90, y: 10 },
+        { x: 90, y: 1 },
+        { x: 90, y: 20 },
+        { x: 80, y: 20 },
+        { x: 90, y: 20 },
+        //g
+        { x: 95, y: 20 },
+        { x: 95, y: 10 },
+        { x: 105, y: 10 },
+        { x: 105, y: 20 },
+        { x: 95, y: 20 },
+        { x: 105, y: 20 },
+        { x: 105, y: 30 },
+        { x: 95, y: 30 },
+        { x: 105, y: 30 },
+        { x: 105, y: 20 },
+        //e
+        { x: 110, y: 20 },
+        { x: 120, y: 20 },
+        { x: 110, y: 20 },
+        { x: 110, y: 10 },
+        { x: 120, y: 10 },
+        { x: 120, y: 15 },
+        { x: 110, y: 15 },
+      ];
+      for (nodeIndex in nodes) {
+        node = nodes[nodeIndex];
+        var circle = document.createElementNS(
+          "http://www.w3.org/2000/svg",
+          "circle"
+        );
+        circle.setAttribute("cx", node.x);
+        circle.setAttribute("cy", node.y);
+        circle.setAttribute("r", 1);
+        svg.appendChild(circle);
+
+        var line = document.createElementNS(
+          "http://www.w3.org/2000/svg",
+          "path"
+        );
+        line.setAttribute("stroke", "black");
+        next = +nodeIndex + 1;
+        neighbor = nodes[next];
+        if (neighbor) {
+          line.setAttribute(
+            "d",
+            `M ${node.x} ${node.y} L ${neighbor.x} ${neighbor.y}`
+          );
+          line.setAttribute("fill", "none");
+          var animate = document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "animate"
+          );
+          animate.setAttribute("attributeName", "d");
+          animate.setAttribute(
+            "values",
+            `M ${node.x} ${node.y} L ${node.x} ${node.y};M ${node.x} ${node.y} L ${neighbor.x} ${neighbor.y};M ${node.x} ${node.y} L ${node.x} ${node.y}`
+          );
+          random = Math.floor(Math.random() * 15) + 3;
+          animate.setAttribute("dur", random + "s");
+          if (random % 2) {
+            animate.setAttribute("repeatCount", "indefinite");
+          }
+          line.appendChild(animate);
+        }
+        svg.appendChild(line);
+      }
+      //]]>]
+    </script>
+    </svg>
