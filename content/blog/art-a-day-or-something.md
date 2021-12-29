@@ -1,5 +1,5 @@
 ---
-title: Art a Day or something?
+title: Thing a day - Carte Blanche
 date: 2021-12-29T21:39:52.739Z
 description: Art a day 1
 type: Blog
