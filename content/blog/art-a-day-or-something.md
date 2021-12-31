@@ -1,8 +1,8 @@
 ---
-title: Thing a day - Carte Blanche
+title: Thing a day - Carte Blanche (001)
 date: 2021-12-29T21:39:52.739Z
 description: Art a day 1
-type: Blog
+type: Art
 ---
 
 I've got a cool new Graphic Tablet for Xmas, and I'd like to practice, so I guess I'm gonna try to do 15 minutes based on some random idea, and post it? 
