@@ -8,4 +8,4 @@ Today's Inspiration: Tree
 
 It was a tree in the winter without any leaves. Why are leaves so hard to draw?
 
-![](/img/008-thing-a-day-spare-tree.png)
+![](/img/008-thing-a-day-tree.png)
