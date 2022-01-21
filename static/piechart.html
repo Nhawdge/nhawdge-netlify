@@ -9,50 +9,70 @@
 </head>
 
 <body>
-    <div>
-        a rx ry x-axis-rotation large-arc-flag sweep-flag dx dy
-    </div>
+    <textarea cols=80 rows=10>
+How Awesome I am,100,blue
+How Much time It took me to figure this out, 300,red
+    </textarea>
+    <button>Make it So</button>
+    <hr>
 
-
-    <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+    <svg width="600" height="200" xmlns="http://www.w3.org/2000/svg">
         <script>
             var svg = document.querySelector("svg");
-            var data = [
-                { title: "Skill with SVGs", value: 30, color: "green" },
-                { title: "Free time", value: 35, color: "blue" },
-                { title: "Skill with SVGs", value: 35, color: "red" },
-               //{ title: "Free time", value: 100, color: "orange" },
-            ]
+            var input = document.querySelector('textarea');
+            document.querySelector('button').addEventListener("click", theMagic);
 
-            var total = data.reduce((a, c) => a + c.value, 0);
-            var lastData = { x: 150, y: 100, angle: 0 }
-            var radius = 50;
-            data.forEach(dataSlice => {
-                var percent = dataSlice.value / total;
-                var angle = percent * 360;
-                var path = "M 100 100"
-                path += ` L ${lastData.x} ${lastData.y}`;
-                var adjustedAngle = angle + lastData.angle;
-                var angleInRadians = parseFloat((adjustedAngle * (Math.PI / 180)).toFixed(4));
-                var x = Math.round(Math.cos(angleInRadians) * radius) + 100;
-                var y = Math.round(Math.sin(angleInRadians) * radius) + 100;
-                var largeArc = angle > 180 ? 1 : 0;
-                path += ` A ${radius} ${radius} ${lastData.angle} ${largeArc} 1 ${x} ${y} z`;
-                lastData.angle = adjustedAngle;
-                lastData.x = x;
-                lastData.y = y;
-                console.log({ percent, angle, adjustedAngle, x, y });
+            function theMagic() {
+                svg.innerHTML = "";
+                var data = input.value.split('\n').map(x => x.trim()).filter(x => x.length).map(x => {
+                    var vals = x.split(",").map(x => x.trim());
+                    return { title: vals[0], value: parseInt(vals[1]), color: vals[2] };
+                });
+                var total = data.reduce((a, c) => a + c.value, 0);
+                var lastData = { x: 150, y: 100, angle: 0 }
+                var radius = 50;
 
-                var pathNode = document.createElementNS("http://www.w3.org/2000/svg", "path");
-                pathNode.setAttribute("fill", dataSlice.color);
-                pathNode.setAttribute("stroke", "white");
-                pathNode.setAttribute("d", path);
-                pathNode.setAttribute("title", dataSlice.title);
-                pathNode.setAttribute("value", dataSlice.value);
-                pathNode.setAttribute("onclick", "alert(this.getAttribute('title'))");
-                svg.appendChild(pathNode);
-            });
+                data.forEach((dataSlice, i) => {
+                    var percent = dataSlice.value / total;
+                    var angle = percent * 360;
+                    var path = "M 100 100"
+                    path += ` L ${lastData.x} ${lastData.y}`;
+                    var adjustedAngle = angle + lastData.angle;
+                    var angleInRadians = parseFloat((adjustedAngle * (Math.PI / 180)).toFixed(4));
+                    var x = Math.round(Math.cos(angleInRadians) * radius) + 100;
+                    var y = Math.round(Math.sin(angleInRadians) * radius) + 100;
+                    var largeArc = angle > 180 ? 1 : 0;
+                    path += ` A ${radius} ${radius} ${lastData.angle} ${largeArc} 1 ${x} ${y} z`;
+                    lastData.angle = adjustedAngle;
+                    lastData.x = x;
+                    lastData.y = y;
 
+                    var pathNode = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                    pathNode.setAttribute("fill", dataSlice.color);
+                    pathNode.setAttribute("stroke", "white");
+                    pathNode.setAttribute("d", path);
+                    pathNode.setAttribute("title", dataSlice.title);
+                    pathNode.setAttribute("value", dataSlice.value);
+                    pathNode.setAttribute("onclick", "alert(this.getAttribute('title'))");
+                    svg.appendChild(pathNode);
+
+                    var keyNode = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                    keyNode.setAttribute("x", 200);
+                    keyNode.setAttribute("y", i * 20);
+                    keyNode.setAttribute("width", 20);
+                    keyNode.setAttribute("height", 20);
+                    keyNode.setAttribute("fill", dataSlice.color);
+                    keyNode.setAttribute("title", dataSlice.title);
+
+                    svg.appendChild(keyNode);
+                    keyText = document.createElementNS("http://www.w3.org/2000/svg", "text");
+                    keyText.setAttribute("x", 225);
+                    keyText.setAttribute("y", i * 20 + 15);
+                    keyText.setAttribute("fill", "black");
+                    keyText.textContent = dataSlice.title;
+                    svg.appendChild(keyText);
+                });
+            }
         </script>
     </svg>
 
