@@ -19,23 +19,24 @@
             var svg = document.querySelector("svg");
             var data = [
                 { title: "Skill with SVGs", value: 25, color: "green" },
-                { title: "Free time", value: 50, color: "blue" },
+                //{ title: "Free time", value: 50, color: "blue" },
                 { title: "Skill with SVGs", value: 75, color: "red" },
-                { title: "Free time", value: 100, color: "orange" },
+                //{ title: "Free time", value: 100, color: "orange" },
             ]
 
             var total = data.reduce((a, c) => a + c.value, 0);
-            var lastData = { x: 0, y: -50, angle: 0 }
+            var lastData = { x: 150, y: 100, angle: 0 }
             var radius = 50;
             data.forEach(dataSlice => {
                 var percent = dataSlice.value / total;
                 var angle = percent * 360;
                 var path = "M 100 100"
-                path += ` l ${lastData.x} ${lastData.y}`;
-                var x = Math.round(Math.cos(angle * (Math.PI / 180)) * radius);
-                var y = Math.round(Math.sin(angle * (Math.PI / 180)) * radius);
+                path += ` L ${lastData.x} ${lastData.y}`;
+                var angleInRadians = parseFloat(((angle +lastData.angle) * (Math.PI / 180)).toFixed(4));
+                var x = Math.round(Math.cos(angleInRadians) * radius) + 100;
+                var y = Math.round(Math.sin(angleInRadians) * radius) + 100;
                 var largeArc = angle > 180 ? 1 : 0;
-                path += ` a ${radius} ${radius} ${lastData.angle} ${largeArc} 1 ${x} ${y} z`;
+                path += ` A ${radius} ${radius} ${lastData.angle} ${largeArc} 1 ${x} ${y} z`;
                 lastData.angle = angle;
                 lastData.x = x;
                 lastData.y = y;
@@ -43,7 +44,7 @@
                 pathNode.setAttribute("fill", dataSlice.color);
                 pathNode.setAttribute("stroke", "white");
 
-                console.log({ percent, total, angle, path });
+                console.log({ percent, angle, x, y });
                 pathNode.setAttribute("d", path);
                 pathNode.setAttribute("title", dataSlice.title);
                 pathNode.setAttribute("value", dataSlice.value);
