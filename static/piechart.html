@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pie Chart Atttempt like a billion</title>
+    <title>Pie Chart Attempt like a billion</title>
 </head>
 
 <body>
@@ -18,10 +18,10 @@
         <script>
             var svg = document.querySelector("svg");
             var data = [
-                { title: "Skill with SVGs", value: 25, color: "green" },
-                //{ title: "Free time", value: 50, color: "blue" },
-                { title: "Skill with SVGs", value: 75, color: "red" },
-                //{ title: "Free time", value: 100, color: "orange" },
+                { title: "Skill with SVGs", value: 30, color: "green" },
+                { title: "Free time", value: 35, color: "blue" },
+                { title: "Skill with SVGs", value: 35, color: "red" },
+               //{ title: "Free time", value: 100, color: "orange" },
             ]
 
             var total = data.reduce((a, c) => a + c.value, 0);
@@ -32,19 +32,20 @@
                 var angle = percent * 360;
                 var path = "M 100 100"
                 path += ` L ${lastData.x} ${lastData.y}`;
-                var angleInRadians = parseFloat(((angle +lastData.angle) * (Math.PI / 180)).toFixed(4));
+                var adjustedAngle = angle + lastData.angle;
+                var angleInRadians = parseFloat((adjustedAngle * (Math.PI / 180)).toFixed(4));
                 var x = Math.round(Math.cos(angleInRadians) * radius) + 100;
                 var y = Math.round(Math.sin(angleInRadians) * radius) + 100;
                 var largeArc = angle > 180 ? 1 : 0;
                 path += ` A ${radius} ${radius} ${lastData.angle} ${largeArc} 1 ${x} ${y} z`;
-                lastData.angle = angle;
+                lastData.angle = adjustedAngle;
                 lastData.x = x;
                 lastData.y = y;
+                console.log({ percent, angle, adjustedAngle, x, y });
+
                 var pathNode = document.createElementNS("http://www.w3.org/2000/svg", "path");
                 pathNode.setAttribute("fill", dataSlice.color);
                 pathNode.setAttribute("stroke", "white");
-
-                console.log({ percent, angle, x, y });
                 pathNode.setAttribute("d", path);
                 pathNode.setAttribute("title", dataSlice.title);
                 pathNode.setAttribute("value", dataSlice.value);
