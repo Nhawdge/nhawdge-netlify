@@ -36,7 +36,8 @@ export default function IndexPage() {
       <p>
         Hi and welcome to my personal, professional, and everything else blog.
         I'm keeping it simple, and blogging about things I'm interested in, and
-        things I've done.
+        things I've done. If you're trying to reach me, the best way is to find
+        me on discord at <span> Nhawdge#8543</span>. Happy Coding!
       </p>
       <article>
         {blogs.map(x => (
